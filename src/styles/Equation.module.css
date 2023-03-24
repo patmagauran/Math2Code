@@ -1,0 +1,26 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem;
+    min-height: 100vh;
+  }
+  .center {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0;
+  }
+  
+
+
+  .resultContainer {
+    margin: 20px 0 0;
+    max-width: 600px;
+  }
+
+  .resultLatex {
+    margin-left: 10px;
+    font-weight: 600;
+  }
