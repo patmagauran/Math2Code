@@ -1,0 +1,26 @@
+{
+    "add": {
+        "type": "i",
+        "symbol": "+"
+    },
+    "subtract": {
+        "type": "i",
+        "symbol": "-"
+    },
+    "divide": {
+        "type": "i",
+        "symbol": "/"
+    },
+    "multiply": {
+        "type": "i",
+        "symbol": "*"
+    },
+    "pow": {
+        "type": "i",
+        "symbol": "**"
+    },
+    "sqrt": {
+        "type": "p",
+        "symbol": "sqrt"
+    }
+}
