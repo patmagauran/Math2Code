@@ -2,6 +2,7 @@ import pythonMap from "./python.json";
 import textMap from "./text.json";
 import excelMap from "./excel.json";
 import { MathNode } from "mathjs";
+import { parseTex } from 'tex-math-parser' // ES6 module
 
 function translate(mml: MathNode, mapping: any): string {
   switch (mml.type) {
@@ -96,8 +97,10 @@ function generate(el: Array<string> | string): string {
   }
 }
 
-function doTransform(mml: MathNode, mapping: any): string {
-  let code = translate(mml, mapping);
+function doTransform(latex: string, mapping: any): string {
+  let mathJSTree = parseTex(latex);
+
+  let code = translate(mathJSTree, mapping);
   let tokens = tokenize(code);
   if (tokens != null) {
   let ast = parse(tokens);
@@ -107,14 +110,14 @@ function doTransform(mml: MathNode, mapping: any): string {
   }
 }
 
-export function mmlToPython(mml: MathNode) {
-  return doTransform(mml, pythonMap);
+export function latexToPython(latex: string) {
+  return doTransform(latex, pythonMap);
 }
 
-export function mmlToText(mml: MathNode) {
-  return doTransform(mml, textMap);
+export function latexToText(latex: string) {
+  return doTransform(latex, textMap);
 }
 
-export function mmlToExcel(mml: MathNode) {
-  return doTransform(mml, excelMap);
+export function latexToExcel(latex: string) {
+  return doTransform(latex, excelMap);
 }

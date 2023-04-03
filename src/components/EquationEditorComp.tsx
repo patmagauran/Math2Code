@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { addStyles, EditableMathField, MathField } from 'react-mathquill'
 
 // inserts the required css to the <head> block.

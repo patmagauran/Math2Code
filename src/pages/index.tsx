@@ -1,13 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 
-import mathjs from 'mathjs';
-import { parseTex, evaluateTex } from 'tex-math-parser' // ES6 module
 
 
 const inter = Inter({ subsets: ['latin'] })
 import dynamic from "next/dynamic";
-import {mmlToPython, mmlToText, mmlToExcel} from '@/translator/mmlToCode';
+import {latexToPython, latexToText, latexToExcel} from '@/translator/latexToCode';
 const EquationEditorComp = dynamic(
   () => import("../components/EquationEditorComp"),
   {
@@ -45,13 +43,10 @@ export default function Home() {
           setText(mathField.text())
 
           console.log('Editable mathfield changed:', mathField.latex())
-          let mathJSTree = parseTex(mathField.latex());
-
-          console.log('Editable mathfield changed:', mathJSTree)
-          console.log("JSON: " + mmlToText(mathJSTree))
-          setC_text(mmlToText(mathJSTree))
-          setPython(mmlToPython(mathJSTree))
-          setExcel(mmlToExcel(mathJSTree))
+          let latex = mathField.latex();
+          setC_text(latexToText(latex))
+          setPython(latexToPython(latex))
+          setExcel(latexToExcel(latex))
 
         }}
         // mathquillDidMount={(mathField) => {
