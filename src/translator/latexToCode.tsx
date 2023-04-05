@@ -5,6 +5,9 @@ import { MathNode } from "mathjs";
 import { parseTex } from 'tex-math-parser' // ES6 module
 
 function translate(mml: MathNode, mapping: any): string {
+  if (mml == undefined || mml.type == undefined) {
+    return "";
+  }
   switch (mml.type) {
     case "OperatorNode":
       if (mml.args != undefined) {
@@ -19,6 +22,8 @@ function translate(mml: MathNode, mapping: any): string {
                 return mappingOp.symbol + "(" + left + ", " + right + ")";
               case "i":
                 return "(" + left + " " + mappingOp.symbol + " " + right + ")";
+              case "u":
+                return mappingOp.symbol +left;
             }
           } else {
             return "(" + left + " " + (mml.op ?? "") + " " + right + ")";
@@ -97,16 +102,37 @@ function generate(el: Array<string> | string): string {
   }
 }
 
+function prepareLatex(latex: string): string {
+  console.log("PreCleaned Latex:", latex);
+  latex = latex.replace(/\\sin\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "asin($1)");
+  latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "acos($1)");
+  latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "atan($1)");
+  latex = latex.replace(/\\sin\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(sin\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(cos\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(tan\\left($2\\right))^{$1}");
+  console.log("Cleaned Latex:", latex);
+
+  return latex;
+}
+
+function trimParentheses(str: string): string {
+  if (str.startsWith("(") && str.endsWith(")")) {
+    return str.substring(1, str.length - 1);
+  }
+  return str;
+}
+
 function doTransform(latex: string, mapping: any): string {
-  let mathJSTree = parseTex(latex);
+  let cleanLatex = prepareLatex(latex);
+  let mathJSTree = parseTex(cleanLatex);
 
   let code = translate(mathJSTree, mapping);
   let tokens = tokenize(code);
   if (tokens != null) {
   let ast = parse(tokens);
-  return generate(ast);
+  return trimParentheses(generate(ast));
   } else {
-    return code;
+    return trimParentheses(code);
   }
 }
 

@@ -22,5 +22,9 @@
     "sqrt": {
         "type": "p",
         "symbol": "sqrt"
+    },
+    "unaryMinus": {
+        "type": "u",
+        "symbol": "-"
     }
 }
