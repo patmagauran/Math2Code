@@ -15,7 +15,7 @@ function translate(mml: MathNode, mapping: any): string {
         let right = translate(mml.args[1], mapping);
         let op = mml.fn;
         if (op != undefined) {
-          let mappingOp = mapping[op];
+          let mappingOp = mapping.operators[op];
           if (mappingOp != undefined) {
             switch (mappingOp.type) {
               case "p":
@@ -39,8 +39,8 @@ function translate(mml: MathNode, mapping: any): string {
       if (mml.args != undefined) {
         if (mml.name != undefined) {
           let fn = mml.name;
-          if (mapping[mml.name] != undefined) {
-            fn = mapping[mml.name].symbol;
+          if (mapping.operators[mml.name] != undefined) {
+            fn = mapping.operators[mml.name].symbol;
           }
           let args = mml.args.map((arg) => translate(arg, mapping));
           return fn + "(" + args.join(", ") + ")";
@@ -53,7 +53,12 @@ function translate(mml: MathNode, mapping: any): string {
       return mml.value;
       break;
     case "SymbolNode":
-      return mml.name ?? "";
+      let name = mml.name ?? "";
+      let mappingSym = mapping.symbols[name];
+      if (mappingSym != undefined && mappingSym.symbol != undefined) {
+        return mappingSym.symbol;
+      }
+      return name;
       break;
     case "AssignmentNode":
       return mml.name + " = " + translate(mml.value, mapping);
@@ -104,12 +109,12 @@ function generate(el: Array<string> | string): string {
 
 function prepareLatex(latex: string): string {
   console.log("PreCleaned Latex:", latex);
-  latex = latex.replace(/\\sin\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "asin($1)");
-  latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "acos($1)");
-  latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "atan($1)");
-  latex = latex.replace(/\\sin\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(sin\\left($2\\right))^{$1}");
-  latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(cos\\left($2\\right))^{$1}");
-  latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(tan\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\sin\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arcsin($1)");
+  latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arccos($1)");
+  latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arctan($1)");
+  latex = latex.replace(/\\sin\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\sin\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\cos\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\tan\\left($2\\right))^{$1}");
   console.log("Cleaned Latex:", latex);
 
   return latex;

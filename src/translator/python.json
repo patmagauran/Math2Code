@@ -1,26 +1,65 @@
 {
-    "add": {
+    "operators": {
+      "add": {
         "type": "i",
         "symbol": "+"
-    },
-    "subtract": {
+      },
+      "subtract": {
         "type": "i",
         "symbol": "-"
-    },
-    "divide": {
+      },
+      "divide": {
         "type": "i",
         "symbol": "/"
-    },
-    "multiply": {
+      },
+      "multiply": {
         "type": "i",
         "symbol": "*"
-    },
-    "pow": {
+      },
+      "pow": {
         "type": "i",
         "symbol": "**"
-    },
-    "sqrt": {
+      },
+      "sqrt": {
         "type": "p",
-        "symbol": "sqrt"
+        "symbol": "math.sqrt"
+      },
+      "unaryMinus": {
+        "type": "u",
+        "symbol": "-"
+      },
+      "asin": {
+        "type": "p",
+        "symbol": "math.asin"
+      },
+      "acos": {
+        "type": "p",
+        "symbol": "math.acos"
+      },
+      "atan": {
+        "type": "p",
+        "symbol": "math.atan"
+      },
+      "sin": {
+        "type": "p",
+        "symbol": "math.sin"
+      },
+      "cos": {
+        "type": "p",
+        "symbol": "math.cos"
+      },
+      "tan": {
+        "type": "p",
+        "symbol": "math.tan"
+      }
+    },
+    "symbols": {
+      "pi": {
+        "symbol": "math.pi"
+      },
+      "e": {
+          "symbol": "math.e"
+        }
     }
-}
+  }
+  
