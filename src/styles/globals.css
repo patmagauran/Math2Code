@@ -73,6 +73,9 @@
   }
 } */
 
+div{
+  padding-top: 1em;
+}
 
 
 html,
@@ -93,7 +96,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 /* @media (prefers-color-scheme: dark) {

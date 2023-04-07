@@ -28,31 +28,47 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Equation Editor" />
+        <title>Math2Code</title>
+        <meta name="description" content="Interactive Equation editor which converts typeset equations into code and excel-compatibile formulas." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
       <div className={styles.center}>
-      <h2>Editable Math Field</h2>
+      <h1>Math2Code</h1>
+      <div>
+      <b>Note:</b> 
+      <p>This is currently in Alpha Stage and is intended for testing purposes only. 
+        If you encounter any issues please open an issue on github or let me know. 
+        Please verify any output from this before use.</p>
+        <a href='https://github.com/patmagauran/Math2Code'>Access the Github repo Here!</a>
+        <b></b>
+      </div>
+      <div>
       <EquationEditorComp
         latex={latex}
         onChange={(mathField) => {
           setLatex(mathField.latex())
           setText(mathField.text())
-
-          console.log('Editable mathfield changed:', mathField.latex())
-          let latex = mathField.latex();
-          setC_text(latexToText(latex))
-          setPython(latexToPython(latex))
-          setExcel(latexToExcel(latex))
-
+          try {
+            console.log('Editable mathfield changed:', mathField.latex())
+            let latex = mathField.latex();
+            setC_text(latexToText(latex))
+            setPython(latexToPython(latex))
+            setExcel(latexToExcel(latex))
+  
+          } catch (error) {
+            setC_text("Error parsing Expression")
+            setPython("Error parsing Expression")
+            setExcel("Error parsing Expression")
+          }
+         
         }}
         // mathquillDidMount={(mathField) => {
         //   setText(mathField.text())
         // }}
       />
+      
       <div className={styles.resultContainer}>
         <span>Raw latex:</span>
         <span className={styles.resultLatex}>{latex}</span>
@@ -80,12 +96,20 @@ export default function Home() {
       >
         Reset field
       </button>
+      </div>
         {/* <h1>Equation</h1>
         <EquationEditorComp onChange={(mathField: MathField)=> {
           setLatex(mathField.latex())
 
         }} />
         <p>{latex}</p> */}
+        
+                <div>
+          Really like this project and want to support me? Feel free to buy me a coffee. <a href="https://www.paypal.com/donate/?business=BPBZSGK6CK8P8&no_recurring=1&currency_code=USD">Donate Here!</a>
+        </div>
+        <div>
+          Copyright 2023 by Patrick Magauran. All rights reserved.
+        </div>
       </div>
     </main>
     </>

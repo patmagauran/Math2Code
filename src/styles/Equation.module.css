@@ -3,21 +3,23 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 6rem;
+    padding: 0 6rem;
     min-height: 100vh;
   }
   .center {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
+  
   
 
 
   .resultContainer {
     margin: 20px 0 0;
     max-width: 600px;
+    padding-top: 0;
   }
 
   .resultLatex {
