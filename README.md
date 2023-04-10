@@ -52,6 +52,7 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [ ] Optimize page payload
 - [ ] Generate working code samples
 - [ ] Support subscripted variables
+- [ ] Generate Transparent PNGs and SVGs of typeset equations
 
 ### Beta 2
 - [ ] Allow defining variable types
