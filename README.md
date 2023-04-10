@@ -29,7 +29,7 @@ This relies on the following technologies:
 | arcsin   | Y     | Y     | Y     | Y      |       |
 | arccos   | Y     | Y     | Y     | Y      |       |
 | arctan   | Y     | Y     | Y     | Y      |       |
-| e^x      | Y     | Y     | Y     | Y      | It is interpreted as e ^ x and does not use the exp function      |
+| e^x      | Y     | Y     | Y     | Y      |       |
 
 
 constant Support List
