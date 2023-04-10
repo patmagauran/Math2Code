@@ -54,6 +54,9 @@ export default function Home() {
               github or let me know. Please verify any output from this before
               use.
             </p>
+            <p>
+              I Recommend reading over the readme to fully understand the current state of the app and its limitations: <a href="https://github.com/patmagauran/Math2Code/blob/main/README.md">README</a>
+            </p>
             <a href="https://github.com/patmagauran/Math2Code">
               Access the Github repo Here!
             </a>
