@@ -39,6 +39,10 @@
     "atan": {
       "type": "p",
       "symbol": "arctan"
+    },
+    "exp": {
+      "type": "ur",
+      "symbol": "e^"
     }
   },
   "symbols": {

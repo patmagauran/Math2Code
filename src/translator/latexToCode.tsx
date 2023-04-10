@@ -15,6 +15,11 @@ function translate(mml: MathNode, mapping: any): string {
         let right = translate(mml.args[1], mapping);
         let op = mml.fn;
         if (op != undefined) {
+          if (op == "pow") {
+            if (mml.args[0].name == "e") {
+              op = "exp";
+            }
+          }
           let mappingOp = mapping.operators[op];
           if (mappingOp != undefined) {
             switch (mappingOp.type) {
@@ -24,6 +29,8 @@ function translate(mml: MathNode, mapping: any): string {
                 return "(" + left + " " + mappingOp.symbol + " " + right + ")";
               case "u":
                 return mappingOp.symbol +left;
+              case "ur":
+                return mappingOp.symbol + "(" + right + ")";
             }
           } else {
             return "(" + left + " " + (mml.op ?? "") + " " + right + ")";

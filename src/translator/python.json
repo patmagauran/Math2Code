@@ -51,6 +51,10 @@
       "tan": {
         "type": "p",
         "symbol": "math.tan"
+      },
+      "exp": {
+        "type": "ur",
+        "symbol": "math.exp"
       }
     },
     "symbols": {

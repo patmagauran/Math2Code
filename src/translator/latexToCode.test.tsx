@@ -42,7 +42,7 @@ describe('Conversion to Text', () => {
         expect(latexToText('x = \\sin(\\pi)')).toBe('x = sin(pi)');
     });
     test('y = e^x', () => {
-        expect(latexToText('y = e^x')).toBe('y = (e ^ x)');
+        expect(latexToText('y = e^x')).toBe('y = e^(x)');
     });
  })
  describe('Conversion to Excel', () => { 
@@ -71,7 +71,7 @@ describe('Conversion to Text', () => {
         expect(latexToExcel('x = \\sin(\\pi)')).toBe('x = sin(pi())');
     });
     test('y = e^x', () => {
-        expect(latexToExcel('y = e^x')).toBe('y = (exp(1) ^ x)');
+        expect(latexToExcel('y = e^x')).toBe('y = exp(x)');
     });
  })
  describe('Conversion to Python', () => { 
@@ -100,6 +100,6 @@ describe('Conversion to Text', () => {
         expect(latexToPython('x = \\sin(\\pi)')).toBe('x = math.sin(math.pi)');
     });
     test('y = e^x', () => {
-        expect(latexToPython('y = e^x')).toBe('y = (math.e ** x)');
+        expect(latexToPython('y = e^x')).toBe('y = math.exp(x)');
     });
  })
