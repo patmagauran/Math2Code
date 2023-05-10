@@ -5,7 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch via NPM",
+            "name": "Launch texParser",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "testTexNew"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Launch math2code",
             "request": "launch",
             "runtimeArgs": [
                 "run-script",

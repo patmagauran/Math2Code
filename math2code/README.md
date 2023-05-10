@@ -31,6 +31,7 @@ This allows you to easily enter an equation and convert it to various formats au
 | coth           | N     | N     | N     | N      |       |
 | sec            | N     | N     | N     | N      |       |
 | csc            | N     | N     | N     | N      |       |
+| abs            | N     | N     | N     | N      |       |
 
 ### Constant Support List
  - Pi
