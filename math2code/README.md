@@ -4,23 +4,33 @@ This allows you to easily enter an equation and convert it to various formats au
 
 ### Function Support List:
 
-| Function | Latex | Text  | Excel | Python | Notes |
-| -------- | ----- | ----  | ----  | ------ | ----- |
-| +        | Y     | Y     | Y     | Y      |       |
-| -        | Y     | Y     | Y     | Y      |       |
-| /        | Y     | Y     | Y     | Y      |       |
-| *        | Y     | Y     | Y     | Y      |       |
-| ^        | Y     | Y     | Y     | Y      |       |
-| sqrt     | Y     | Y     | Y     | Y      |       |
-| sin      | Y     | Y     | Y     | Y      |       |
-| cos      | Y     | Y     | Y     | Y      |       |
-| tan      | Y     | Y     | Y     | Y      |       |
-| arcsin   | Y     | Y     | Y     | Y      |       |
-| arccos   | Y     | Y     | Y     | Y      |       |
-| arctan   | Y     | Y     | Y     | Y      |       |
-| e^x      | Y     | Y     | Y     | Y      |       |
-| ln       | Y     | N     | N     | N      |       |
-| log      | N     | N     | N     | N      |       |
+| Function       | Latex | Text  | Excel | Python | Notes |
+| --------       | ----- | ----  | ----  | ------ | ----- |
+| +              | Y     | Y     | Y     | Y      |       |
+| -              | Y     | Y     | Y     | Y      |       |
+| /              | Y     | Y     | Y     | Y      |       |
+| *              | Y     | Y     | Y     | Y      |       |
+| ^              | Y     | Y     | Y     | Y      |       |
+| sqrt           | Y     | Y     | Y     | Y      |       |
+| sin            | Y     | Y     | Y     | Y      |       |
+| cos            | Y     | Y     | Y     | Y      |       |
+| tan            | Y     | Y     | Y     | Y      |       |
+| arcsin         | Y     | Y     | Y     | Y      |       |
+| arccos         | Y     | Y     | Y     | Y      |       |
+| arctan         | Y     | Y     | Y     | Y      |       |
+| e^x            | Y     | Y     | Y     | Y      |       |
+| ln             | Y     | N     | N     | N      |       |
+| log            | N     | N     | N     | N      |       |
+| mod            | N     | N     | N     | N      |       |
+| arbitrary root | N     | N     | N     | N      |       |
+| cot            | N     | N     | N     | N      |       |
+| arccot         | N     | N     | N     | N      |       |
+| sinh           | N     | N     | N     | N      |       |
+| cosh           | N     | N     | N     | N      |       |
+| tanh           | N     | N     | N     | N      |       |
+| coth           | N     | N     | N     | N      |       |
+| sec            | N     | N     | N     | N      |       |
+| csc            | N     | N     | N     | N      |       |
 
 ### Constant Support List
  - Pi

@@ -44,6 +44,48 @@ describe('Conversion to Text', () => {
     test('y = e^x', () => {
         expect(latexToText('y = e^x')).toBe('y = e^(x)');
     });
+    test('y = \\ln(x)', () => {
+        expect(latexToText('y = \\ln(x)')).toBe('y = ln(x)');
+    });
+    test('y = \\log_3{x}', () => {
+        expect(latexToText('y = \\log_3{x}')).toBe('y = log_3(x)');
+    });
+    test('y = a \\mod y', () => {
+        expect(latexToText('y = a \\mod y')).toBe('y = a mod y');
+    });
+    test('y = \\sqrt[5]{b}', () => {
+        expect(latexToText('y = \\sqrt[5]{b}')).toBe('y = b^(1/5)');
+    });
+    test('y = \\cot(a)', () => {
+        expect(latexToText('y = \\cot(a)')).toBe('y = cot(a)');
+    });
+    test('y = \\cot^{-1}(a)', () => {
+        expect(latexToText('y = \\cot^{-1}(a)')).toBe('y = arccot(a)');
+    });
+    test('y = \\arccot(a)', () => {
+        expect(latexToText('y = \\arccot(a)')).toBe('y = arccot(a)');
+    });
+    test('y = \\sinh(a)', () => {
+        expect(latexToText('y = \\sinh(a)')).toBe('y = sinh(a)');
+    });
+    test('y = \\cosh(a)', () => {
+        expect(latexToText('y = \\cosh(a)')).toBe('y = cosh(a)');
+    });
+    test('y = \\tanh(a)', () => {
+        expect(latexToText('y = \\tanh(a)')).toBe('y = tanh(a)');
+    });
+    test('y = \\coth(a)', () => {
+        expect(latexToText('y = \\coth(a)')).toBe('y = coth(a)');
+    });
+    test('y = \\sec(a)', () => {
+        expect(latexToText('y = \\sec(a)')).toBe('y = sec(a)');
+    });
+    test('y = \\csc(a)', () => {
+        expect(latexToText('y = \\csc(a)')).toBe('y = csc(a)');
+    });
+    test('y = \\sinh^2(a)', () => {
+        expect(latexToText('y = \\sinh^2(a)')).toBe('y = sinh(a)');
+    });
  })
  describe('Conversion to Excel', () => { 
     test('a + b', () => {

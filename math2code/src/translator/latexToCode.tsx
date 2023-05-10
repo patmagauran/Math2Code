@@ -159,3 +159,13 @@ export function latexToText(latex: string) {
 export function latexToExcel(latex: string) {
   return doTransform(latex, excelMap);
 }
+/*
+To generate working code:
+  - Need list of variables
+  - Indicate assignment variable
+  - Need list of modules
+  - Will be language specific to define function signature and body
+  - Generate method call using a preset value
+  - For typed languages, need to assign a type(float?)
+
+*/
