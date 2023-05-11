@@ -19,19 +19,19 @@ This allows you to easily enter an equation and convert it to various formats au
 | arccos         | Y     | Y     | Y     | Y      |       |
 | arctan         | Y     | Y     | Y     | Y      |       |
 | e^x            | Y     | Y     | Y     | Y      |       |
-| ln             | Y     | N     | N     | N      |       |
-| log            | N     | N     | N     | N      |       |
-| mod            | N     | N     | N     | N      |       |
-| arbitrary root | N     | N     | N     | N      |       |
-| cot            | N     | N     | N     | N      |       |
-| arccot         | N     | N     | N     | N      |       |
-| sinh           | N     | N     | N     | N      |       |
-| cosh           | N     | N     | N     | N      |       |
-| tanh           | N     | N     | N     | N      |       |
-| coth           | N     | N     | N     | N      |       |
-| sec            | N     | N     | N     | N      |       |
-| csc            | N     | N     | N     | N      |       |
-| abs            | N     | N     | N     | N      |       |
+| ln             | Y     | Y     | N     | N      |       |
+| log            | Y     | Y     | N     | N      |       |
+| mod            | Y     | Y     | N     | N      |       |
+| arbitrary root | Y     | Y     | N     | N      |       |
+| cot            | Y     | Y     | N     | N      |       |
+| arccot         | Y     | Y     | N     | N      |       |
+| sinh           | Y     | Y     | N     | N      |       |
+| cosh           | Y     | Y     | N     | N      |       |
+| tanh           | Y     | Y     | N     | N      |       |
+| coth           | Y     | Y     | N     | N      |       |
+| sec            | Y     | Y     | N     | N      |       |
+| csc            | Y     | Y     | N     | N      |       |
+| abs            | Y     | Y     | N     | N      | Only supports \left\| syntax      |
 
 ### Constant Support List
  - Pi
@@ -39,8 +39,6 @@ This allows you to easily enter an equation and convert it to various formats au
 ## Usage
 To use this, just enter your equation in the input field and get formatted output below! Some tips
  - Some functions do not automatically convert when you type them and you must type their LaTex Version, i.e `\sqrt` instead of just `sqrt`
- - It uses implicit multiplication - that means no multi-letter variables 
- - It does not support subscripts
  - It does not support greek symbols currently
 
 ## Roadmap
@@ -53,16 +51,17 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [X] Supports standard natural constants pi and e
 - [ ] Error messages for invalid or unrecognized inputs
 - [ ] Autocomplete for base functions
-- [ ] Disclaimer on unsupported features (Subscripts, multiletter variables, etc.)
+- [ ] Disclaimer on unsupported features
 - [ ] Quick guide
 - [ ] Support Greek Symbols
+- [X] Disable implicit variable multiplication and support multi-letter variables
 
 ### Beta
 - [ ] Improve page layout
 - [ ] Add Support for Java, Java BigDecimal, C
 - [ ] Optimize page payload
 - [ ] Generate working code samples
-- [ ] Support subscripted variables
+- [X] Support subscripted variables
 - [ ] Generate Transparent PNGs and SVGs of typeset equations
 
 ### Beta 2
