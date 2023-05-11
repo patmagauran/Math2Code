@@ -89,6 +89,9 @@ describe('Conversion to Text', () => {
     test('y = \\sinh^2(a)', () => {
         expect(latexToText('y = \\sinh^2(a)')).toBe('y = (sinh(a) ^ 2)');
     });
+    test('y = \\left|a+b\\right|', () => {
+        expect(latexToText('y = \\left|a+b\\right|')).toBe('y = |(a + b)|');
+    });
  })
  describe('Conversion to Excel', () => { 
     test('a + b', () => {
