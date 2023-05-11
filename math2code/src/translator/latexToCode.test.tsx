@@ -87,7 +87,7 @@ describe('Conversion to Text', () => {
         expect(latexToText('y = \\csc(a)')).toBe('y = csc(a)');
     });
     test('y = \\sinh^2(a)', () => {
-        expect(latexToText('y = \\sinh^2(a)')).toBe('y = sinh(a)');
+        expect(latexToText('y = \\sinh^2(a)')).toBe('y = (sinh(a) ^ 2)');
     });
  })
  describe('Conversion to Excel', () => { 

@@ -40,6 +40,43 @@
       "type": "p",
       "symbol": "arctan"
     },
+    "acot": {
+      "type": "p",
+      "symbol": "arccot"
+    },
+    "asec": {
+      "type": "p",
+      "symbol": "arcsec"
+    },
+    "acsc": {
+      "type": "p",
+      "symbol": "arccsc"
+    },
+    "asinh": {
+      "type": "p",
+      "symbol": "arcsinh"
+    },
+    "acosh": {
+      "type": "p",
+      "symbol": "arccosh"
+    },
+    "atanh": {
+      "type": "p",
+      "symbol": "arctanh"
+    },
+    "acoth": {
+      "type": "p",
+      "symbol": "arccoth"
+    },
+    "asech": {
+      "type": "p",
+      "symbol": "arcsech"
+    },
+    "acsch": {
+      "type": "p",
+      "symbol": "arccsch"
+    },
+    
     "exp": {
       "type": "ur",
       "symbol": "e^"
