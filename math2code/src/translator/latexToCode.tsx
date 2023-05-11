@@ -151,10 +151,10 @@ function generate(el: Array<string> | string): string {
 
 function prepareLatex(latex: string): string {
   console.log("PreCleaned Latex:", latex);
-  latex = latex.replace(/\\(sin|cos|tan|cot|sinh|cosh|tanh|coth|csc|sec)\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arc$1($2)");
+  latex = latex.replace(/\\(sin|cos|tan|cot|csc|sec|sinh|cosh|tanh|coth|csch|sech)\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arc$1($2)");
   // latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arccos($1)");
   // latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arctan($1)");
-  latex = latex.replace(/\\(sin|cos|tan|cot|sinh|cosh|tanh|coth|csc|sec)\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\$1\\left($3\\right))^{$2}");
+  latex = latex.replace(/\\(sin|cos|tan|cot|csc|sec|sinh|cosh|tanh|coth|csch|sech)\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\$1\\left($3\\right))^{$2}");
   // latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\cos\\left($2\\right))^{$1}");
   // latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\tan\\left($2\\right))^{$1}");
   console.log("Cleaned Latex:", latex);

@@ -65,6 +65,30 @@ describe('Conversion to Text', () => {
     test('y = \\cot^{-1}(a)', () => {
         expect(latexToText('y = \\cot^{-1}(a)')).toBe('y = arccot(a)');
     });
+    test('y = \\csc^{-1}(a)', () => {
+        expect(latexToText('y = \\csc^{-1}(a)')).toBe('y = arccsc(a)');
+    });
+    test('y = \\sec^{-1}(a)', () => {
+        expect(latexToText('y = \\sec^{-1}(a)')).toBe('y = arcsec(a)');
+    });
+    test('y = \\sinh^{-1}(a)', () => {
+        expect(latexToText('y = \\sinh^{-1}(a)')).toBe('y = arcsinh(a)');
+    });
+    test('y = \\cosh^{-1}(a)', () => {
+        expect(latexToText('y = \\cosh^{-1}(a)')).toBe('y = arccosh(a)');
+    });
+    test('y = \\tanh^{-1}(a)', () => {
+        expect(latexToText('y = \\tanh^{-1}(a)')).toBe('y = arctanh(a)');
+    });
+    test('y = \\coth^{-1}(a)', () => {
+        expect(latexToText('y = \\coth^{-1}(a)')).toBe('y = arccoth(a)');
+    });
+    test('y = \\csch^{-1}(a)', () => {
+        expect(latexToText('y = \\csch^{-1}(a)')).toBe('y = arccsch(a)');
+    });
+    test('y = \\sech^{-1}(a)', () => {
+        expect(latexToText('y = \\sech^{-1}(a)')).toBe('y = arcsech(a)');
+    });
     test('y = \\arccot(a)', () => {
         expect(latexToText('y = \\arccot(a)')).toBe('y = arccot(a)');
     });
@@ -86,11 +110,18 @@ describe('Conversion to Text', () => {
     test('y = \\csc(a)', () => {
         expect(latexToText('y = \\csc(a)')).toBe('y = csc(a)');
     });
+    test('y = \\sech(a)', () => {
+        expect(latexToText('y = \\sech(a)')).toBe('y = sech(a)');
+    });
+    test('y = \\csch(a)', () => {
+        expect(latexToText('y = \\csch(a)')).toBe('y = csch(a)');
+    });
+    
     test('y = \\sinh^2(a)', () => {
         expect(latexToText('y = \\sinh^2(a)')).toBe('y = (sinh(a) ^ 2)');
     });
     test('y = \\left|a+b\\right|', () => {
-        expect(latexToText('y = \\left|a+b\\right|')).toBe('y = |(a + b)|');
+        expect(latexToText('y = \\left|a+b\\right|')).toBe('y = abs(a + b)');
     });
  })
  describe('Conversion to Excel', () => { 
