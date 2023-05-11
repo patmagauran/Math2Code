@@ -43,6 +43,13 @@
     "exp": {
       "type": "ur",
       "symbol": "e^"
+    }, 
+    "log": {
+      "type": "log"
+    },
+    "nthRoot": {
+      "type" : "root",
+      "exponent": true
     }
   },
   "symbols": {

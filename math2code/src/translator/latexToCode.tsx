@@ -3,6 +3,7 @@ import textMap from "./text.json";
 import excelMap from "./excel.json";
 import { MathNode } from "mathjs";
 import { parseTex } from 'tex-math-parser' // ES6 module
+import { log } from "console";
 
 function translate(mml: MathNode, mapping: any): string {
   if (mml == undefined || mml.type == undefined) {
@@ -31,6 +32,8 @@ function translate(mml: MathNode, mapping: any): string {
                 return mappingOp.symbol +left;
               case "ur":
                 return mappingOp.symbol + "(" + right + ")";
+              // case "log":
+              //   return logFunc(mappingOp, left,right);
             }
           } else {
             return "(" + left + " " + (mml.op ?? "") + " " + right + ")";
@@ -47,6 +50,12 @@ function translate(mml: MathNode, mapping: any): string {
         if (mml.name != undefined) {
           let fn = mml.name;
           if (mapping.operators[mml.name] != undefined) {
+            if (mml.name == "log" || mml.name == "log10") {
+              return logFunc(mml.name, mapping.operators[mml.name], translate(mml.args[0], mapping), translate(mml.args[1], mapping));
+            }
+            if (mml.name == "nthRoot") {
+              return nthRoot(mapping.operators[mml.name], translate(mml.args[0], mapping), translate(mml.args[1], mapping));
+            }
             fn = mapping.operators[mml.name].symbol;
           }
           let args = mml.args.map((arg) => translate(arg, mapping));
@@ -72,6 +81,32 @@ function translate(mml: MathNode, mapping: any): string {
   }
 
   return "";
+}
+
+function logFunc(name: string, mappingOp:any, arg:string,base:string): string {
+  let logSym = mappingOp.logSym ?? "log";
+  let lnSym = mappingOp.lnSym ?? "ln";
+  if (name == "log") {
+    if (base === undefined || base === "") {
+      return lnSym + "(" + arg + ")";
+    } else {
+      return logSym + "(" + arg + ", " + base + ")";
+    }
+  } else {
+    if (mappingOp.log10 == true) {
+      return mappingOp.log10Sym + "(" + arg + ")";
+    } else {
+      return logSym + "(" + arg + ", 10)";
+    }
+  } 
+}
+
+function nthRoot(mappingOp:any, arg:string, root: string) : string {
+  if (mappingOp.exponent == true) {
+    return arg + " ^ (1 / " + root + ")";
+  } else {
+    return mappingOp.symbol + "(" + arg + ", " + root + ")";
+  }
 }
 
 function tokenize(str: string) {
@@ -116,12 +151,12 @@ function generate(el: Array<string> | string): string {
 
 function prepareLatex(latex: string): string {
   console.log("PreCleaned Latex:", latex);
-  latex = latex.replace(/\\sin\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arcsin($1)");
-  latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arccos($1)");
-  latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arctan($1)");
-  latex = latex.replace(/\\sin\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\sin\\left($2\\right))^{$1}");
-  latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\cos\\left($2\\right))^{$1}");
-  latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\tan\\left($2\\right))^{$1}");
+  latex = latex.replace(/\\(sin|cos|tan|cot|sinh|cosh|tanh|coth|csc|sec)\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arc$1($2)");
+  // latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arccos($1)");
+  // latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arctan($1)");
+  latex = latex.replace(/\\(sin|cos|tan|cot|sinh|cosh|tanh|coth|csc|sec)\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\$1\\left($3\\right))^{$2}");
+  // latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\cos\\left($2\\right))^{$1}");
+  // latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\tan\\left($2\\right))^{$1}");
   console.log("Cleaned Latex:", latex);
 
   return latex;
@@ -136,7 +171,7 @@ function trimParentheses(str: string): string {
 
 function doTransform(latex: string, mapping: any): string {
   let cleanLatex = prepareLatex(latex);
-  let mathJSTree = parseTex(cleanLatex);
+  let mathJSTree = parseTex(cleanLatex, false);
 
   let code = translate(mathJSTree, mapping);
   let tokens = tokenize(code);

@@ -23,8 +23,8 @@ describe('Conversion to Text', () => {
     test('a + b - c * d / e', () => {
         expect(latexToText('a + b - c * d / f')).toBe('(a + b) - ((c * d) / f)');
     });
-    test('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}', () => {
-        expect(latexToText('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}')).toBe('x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))');
+    test('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}', () => {
+        expect(latexToText('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}')).toBe('x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))');
     });
     test('\\sin^2(x) + \\cos^2(x) = 1', () => {
         expect(latexToText('(\\sin(x))^2 + (\\cos(x^2))^2')).toBe('(sin(x) ^ 2) + (cos(x ^ 2) ^ 2)');
@@ -32,11 +32,14 @@ describe('Conversion to Text', () => {
     test('d = \\sqrt{(x-x)^2 + (y-y)^2}', () => {
         expect(latexToText('d = \\sqrt{(x-x)^2 + (y-y)^2}')).toBe('d = sqrt(((x - x) ^ 2) + ((y - y) ^ 2))');
     });
-    test('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}', () => {
-        expect(latexToText('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}')).toBe('c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))');
+    test('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}', () => {
+        expect(latexToText('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}')).toBe('c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))');
     });
     test('x = \\sin^{-1}\\left(\\frac{o},{h}\\right)', () => {
         expect(latexToText('x = \\sin^{-1}\\left(\\frac{o}{h}\\right)')).toBe('x = arcsin(o / h)');
+    });
+    test('x = \\sin(\\pi * length_{ab})', () => {
+        expect(latexToText('x = \\sin(\\pi * length_{ab})')).toBe('x = sin(pi * length_ab)');
     });
     test('x = \\sin(\\pi)', () => {
         expect(latexToText('x = \\sin(\\pi)')).toBe('x = sin(pi)');
@@ -48,13 +51,13 @@ describe('Conversion to Text', () => {
         expect(latexToText('y = \\ln(x)')).toBe('y = ln(x)');
     });
     test('y = \\log_3{x}', () => {
-        expect(latexToText('y = \\log_3{x}')).toBe('y = log_3(x)');
+        expect(latexToText('y = \\log_3{x}')).toBe('y = log(x, 3)');
     });
     test('y = a \\mod y', () => {
-        expect(latexToText('y = a \\mod y')).toBe('y = a mod y');
+        expect(latexToText('y = a \\mod y')).toBe('y = (a % y)');
     });
     test('y = \\sqrt[5]{b}', () => {
-        expect(latexToText('y = \\sqrt[5]{b}')).toBe('y = b^(1/5)');
+        expect(latexToText('y = \\sqrt[5]{b}')).toBe('y = b ^ (1 / 5)');
     });
     test('y = \\cot(a)', () => {
         expect(latexToText('y = \\cot(a)')).toBe('y = cot(a)');
@@ -94,8 +97,8 @@ describe('Conversion to Text', () => {
     test('a + b - c * d / e', () => {
         expect(latexToExcel('a + b - c * d / f')).toBe('(a + b) - ((c * d) / f)');
     });
-    test('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}', () => {
-        expect(latexToExcel('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}')).toBe('x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))');
+    test('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}', () => {
+        expect(latexToExcel('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}')).toBe('x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))');
     });
     test('\\sin^2(x) + \\cos^2(x) = 1', () => {
         expect(latexToExcel('(\\sin(x))^2 + (\\cos(x^2))^2')).toBe('(sin(x) ^ 2) + (cos(x ^ 2) ^ 2)');
@@ -103,8 +106,8 @@ describe('Conversion to Text', () => {
     test('d = \\sqrt{(x-x)^2 + (y-y)^2}', () => {
         expect(latexToExcel('d = \\sqrt{(x-x)^2 + (y-y)^2}')).toBe('d = sqrt(((x - x) ^ 2) + ((y - y) ^ 2))');
     });
-    test('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}', () => {
-        expect(latexToExcel('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}')).toBe('c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))');
+    test('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}', () => {
+        expect(latexToExcel('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}')).toBe('c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))');
     });
     test('x = \\sin^{-1}\\left(\\frac{o},{h}\\right)', () => {
         expect(latexToExcel('x = \\sin^{-1}\\left(\\frac{o}{h}\\right)')).toBe('x = asin(o / h)');
@@ -123,8 +126,8 @@ describe('Conversion to Text', () => {
     test('a + b - c * d / e', () => {
         expect(latexToPython('a + b - c * d / f')).toBe('(a + b) - ((c * d) / f)');
     });
-    test('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}', () => {
-        expect(latexToPython('x = \\frac{-b + \\sqrt{b^2 - 4ac}}{2a}')).toBe('x = ((-b + math.sqrt((b ** 2) - ((4 * a) * c))) / (2 * a))');
+    test('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}', () => {
+        expect(latexToPython('x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}')).toBe('x = ((-b + math.sqrt((b ** 2) - ((4 * a) * c))) / (2 * a))');
     });
     test('\\sin^2(x) + \\cos^2(x) = 1', () => {
         expect(latexToPython('(\\sin(x))^2 + (\\cos(x^2))^2')).toBe('(math.sin(x) ** 2) + (math.cos(x ** 2) ** 2)');
@@ -132,8 +135,8 @@ describe('Conversion to Text', () => {
     test('d = \\sqrt{(x-x)^2 + (y-y)^2}', () => {
         expect(latexToPython('d = \\sqrt{(x-x)^2 + (y-y)^2}')).toBe('d = math.sqrt(((x - x) ** 2) + ((y - y) ** 2))');
     });
-    test('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}', () => {
-        expect(latexToPython('c =\\sqrt{ a^2 + b^2 - 2ab\\cos(C)}')).toBe('c = math.sqrt(((a ** 2) + (b ** 2)) - (((2 * a) * b) * math.cos(C)))');
+    test('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}', () => {
+        expect(latexToPython('c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}')).toBe('c = math.sqrt(((a ** 2) + (b ** 2)) - (((2 * a) * b) * math.cos(C)))');
     });
     test('x = \\sin^{-1}\\left(\\frac{o},{h}\\right)', () => {
         expect(latexToPython('x = \\sin^{-1}\\left(\\frac{o}{h}\\right)')).toBe('x = math.asin(o / h)');
