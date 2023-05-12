@@ -1,28 +1,33 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 6rem;
-    min-height: 100vh;
-  }
-  .center {
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 2rem 0;
-  }
-  
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6rem;
+  min-height: 100vh;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.mathquill {
+  border: none !important;
+  padding: 0.5em;
+}
 
 
-  .resultContainer {
-    margin: 20px 0 0;
-    max-width: 600px;
-    padding-top: 0;
-  }
 
-  .resultLatex {
-    margin-left: 10px;
-    font-weight: 600;
-  }
+.resultContainer {
+  margin: 20px 0 0;
+  max-width: 600px;
+  padding-top: 0;
+}
+
+.resultLatex {
+  margin-left: 10px;
+  font-weight: 600;
+}

@@ -14,17 +14,14 @@ const EquationEditorComp = dynamic(
     ssr: false,
   }
 );
-const CodeField = dynamic(
-  () => import("../components/CodeField"),
-  {
-    ssr: false,
-  }
-);
+const CodeField = dynamic(() => import("../components/CodeField"), {
+  ssr: false,
+});
 import { SetStateAction, useState } from "react";
 import styles from "@/styles/Equation.module.css";
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 const initialLatex =
   "A=\\frac{\\cos\\left(b^2+c^2-a^2\\right)}{\\sqrt{2\\cdot b\\cdot c}}";
 
@@ -48,17 +45,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-         <main className={styles.main}>
-        <div className={styles.center}>
+        <Box
+          sx={{
+            my: 4,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <h1>Math2Code</h1>
           <div>
             <b>Note:</b>
@@ -69,7 +64,11 @@ export default function Home() {
               use.
             </p>
             <p>
-              I Recommend reading over the readme to fully understand the current state of the app and its limitations: <a href="https://github.com/patmagauran/Math2Code/blob/main/README.md">README</a>
+              I Recommend reading over the readme to fully understand the
+              current state of the app and its limitations:{" "}
+              <a href="https://github.com/patmagauran/Math2Code/blob/main/README.md">
+                README
+              </a>
             </p>
             <a href="https://github.com/patmagauran/Math2Code">
               Access the Github repo Here!
@@ -89,6 +88,7 @@ export default function Home() {
                   setC_text(latexToText(latex));
                   setPython(latexToPython(latex));
                   setExcel(latexToExcel(latex));
+                  setError("");
                 } catch (error: any) {
                   setC_text("");
                   setPython("");
@@ -103,9 +103,8 @@ export default function Home() {
 
             <div className={styles.resultContainer}>
               <span>Raw latex:</span>
-              <CodeField language="latex" code={latex}/>
-
-           </div>
+              <CodeField language="latex" code={latex} />
+            </div>
             <div className={styles.resultContainer}>
               <span>Raw text:</span>
               <span className={styles.resultLatex}>{text}</span>
@@ -116,12 +115,11 @@ export default function Home() {
             </div>
             <div className={styles.resultContainer}>
               <span>Python:</span>
-              <CodeField language="python" code={python}/>
+              <CodeField language="python" code={python} />
             </div>
             <div className={styles.resultContainer}>
               <span>Excel:</span>
-              <CodeField language="excel" code={excel}/>
-
+              <CodeField language="excel" code={excel} />
             </div>
             <button
               onClick={() => {
@@ -146,11 +144,8 @@ export default function Home() {
             </a>
           </div>
           <div>Copyright 2023 by Patrick Magauran. All rights reserved.</div>
-        </div>
-      </main>
         </Box>
-    </Container>
-     
+      </Container>
     </>
   );
 }

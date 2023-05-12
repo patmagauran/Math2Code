@@ -49,7 +49,7 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [X] Supports full algebraic and trigonometric function set
 - [X] Unit Tests written and pass
 - [X] Supports standard natural constants pi and e
-- [ ] Error messages for invalid or unrecognized inputs
+- [X] Error messages for invalid or unrecognized inputs
 - [ ] Autocomplete for base functions
 - [ ] Disclaimer on unsupported features
 - [ ] Quick guide
