@@ -55,7 +55,105 @@
       "exp": {
         "type": "ur",
         "symbol": "math.exp"
+      },
+      "log": {
+        "type": "log",
+        "log10": true,
+        "logSym": "math.log",
+        "lnSym": "math.log",
+        "log10Sym": "math.log10"
+      },
+      "nthRoot": {
+        "type" : "root",
+        "exponent": true
+      },
+      "abs": {
+        "type": "p",
+        "symbol": "math.abs"
+      },  
+      "cot": {
+        "type": "p",
+        "symbol": "1 / math.tan"
+      },
+      "sec":
+      {
+        "type": "p",
+        "symbol": "1 / math.cos"
+      },
+      "csc":
+      {
+        "type": "p",
+        "symbol": "1 / math.sin"
+      },
+      "acot": {
+        "type": "p",
+        "symbol": "math.atan",
+        "invert": true
+      },
+      "acsc":
+      {
+        "type": "p",
+        "symbol": "math.asin",
+        "invert": true
+      },
+      "asec":
+      {
+        "type": "p",
+        "symbol": "math.acos",
+        "invert": true
+      },
+      "sinh": {
+        "type": "p",
+        "symbol": "math.sinh"
+      },
+      "cosh": {
+        "type": "p",
+        "symbol": "math.cosh"
+      },
+      "tanh": {
+        "type": "p",
+        "symbol": "math.tanh"
+      },
+      "asinh": {
+        "type": "p",
+        "symbol": "math.asinh"
+      },
+      "acosh": {
+        "type": "p",
+        "symbol": "math.acosh"
+      },
+      "atanh": {
+        "type": "p",
+        "symbol": "math.atanh"
+      },
+      "coth": {
+        "type": "p",
+        "symbol": "1 / math.tanh"
+      },
+      "csch": {
+        "type": "p",
+        "symbol": "1 / math.sinh"
+      },
+      "sech": {
+        "type": "p",
+        "symbol": "1 / math.cosh"
+      },
+      "acoth": {
+        "type": "p",
+        "symbol": "math.atanh",
+        "invert": true
+      },
+      "acsch": {
+        "type": "p",
+        "symbol": "math.asinh",
+        "invert": true
+      },
+      "asech": {
+        "type": "p",
+        "symbol": "math.acosh",
+        "invert": true
       }
+
     },
     "symbols": {
       "pi": {

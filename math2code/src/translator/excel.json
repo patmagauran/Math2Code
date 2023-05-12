@@ -43,6 +43,35 @@
       "exp": {
         "type": "ur",
         "symbol": "exp"
+      },
+      "log": {
+        "type": "log"
+      },
+      "nthRoot": {
+        "type" : "root",
+        "exponent": true
+      },
+      
+      "acsc": {
+        "symbol": "asin",
+        "invert": true
+      },
+      "asec": {
+        "symbol": "acos",
+        "invert": true
+      },
+      
+      "acsch": {
+        "symbol": "asinh",
+        "invert": true
+      },
+      "asech": {
+        "symbol": "acosh",
+        "invert": true
+      },
+      "mod": {
+        "type": "p",
+        "symbol": "mod"
       }
     },
     "symbols": {

@@ -1,0 +1,315 @@
+{
+  "sampleGroups": [
+    {
+      "name": "Basic Algebra",
+      "samples": [
+        {
+          "description": "simple addition",
+          "latex": "a + b",
+          "text": "a + b",
+          "python": "a + b",
+          "excel": "a + b"
+        },
+        {
+          "description": "Composition of Operators",
+          "latex": "a + b - c * d / f",
+          "text": "(a + b) - ((c * d) / f)",
+          "python": "(a + b) - ((c * d) / f)",
+          "excel": "(a + b) - ((c * d) / f)"
+        },
+        {
+          "description": "exponential",
+          "latex": "y = e^x",
+          "text": "y = e^(x)",
+          "python": "y = math.exp(x)",
+          "excel": "y = exp(x)"
+        },
+        {
+          "description": "Natural Log",
+          "latex": "y = \\ln(x)",
+          "text": "y = ln(x)",
+          "python": "y = math.log(x)",
+          "excel": "y = ln(x)"
+        },
+        {
+          "description": "Arbitrary Log",
+          "latex": "y = \\log_3{x}",
+          "text": "y = log(x, 3)",
+          "python": "y = math.log(x, 3)",
+          "excel": "y = log(x, 3)"
+        },
+        {
+          "description": "Modulo",
+          "latex": "y = a \\mod y",
+          "text": "y = (a % y)",
+          "python": "y = (a % y)",
+          "excel": "y = mod(a, y)"
+        },
+        {
+          "description": "Nth Root",
+          "latex": "y = \\sqrt[5]{b}",
+          "text": "y = b ^ (1 / 5)",
+          "python": "y = b ^ (1 / 5)",
+          "excel": "y = b ^ (1 / 5)"
+        },
+
+        {
+          "description": "Absolute Value",
+          "latex": "y = \\left|a+b\\right|",
+          "text": "y = abs(a + b)",
+          "python": "y = math.abs(a + b)",
+          "excel": "y = abs(a + b)"
+        }
+      ]
+    },
+    {
+      "name": "Standard Trig",
+      "samples": [
+        {
+          "description": "sin",
+          "latex": "y = \\sin(a)",
+          "text": "y = sin(a)",
+          "python": "y = math.sin(a)",
+          "excel": "y = sin(a)"
+        },
+        {
+          "description": "cos",
+          "latex": "y = \\cos(a)",
+          "text": "y = cos(a)",
+          "python": "y = math.cos(a)",
+          "excel": "y = cos(a)"
+        },
+        {
+          "description": "tan",
+          "latex": "y = \\tan(a)",
+          "text": "y = tan(a)",
+          "python": "y = math.tan(a)",
+          "excel": "y = tan(a)"
+        },
+        {
+          "description": "Cotangent",
+          "latex": "y = \\cot(a)",
+          "text": "y = cot(a)",
+          "python": "y = 1 / math.tan(a)",
+          "excel": "y = cot(a)"
+        },
+        {
+          "description": "sec",
+          "latex": "y = \\sec(a)",
+          "text": "y = sec(a)",
+          "python": "y = 1 / math.cos(a)",
+          "excel": "y = sec(a)"
+        },
+        {
+          "description": "csc",
+          "latex": "y = \\csc(a)",
+          "text": "y = csc(a)",
+          "python": "y = 1 / math.sin(a)",
+          "excel": "y = csc(a)"
+        }
+      ]
+    },
+    {
+      "name": "Inverse Standrd Trig",
+      "samples": [
+        {
+          "description": "arcsin",
+          "latex": "y = \\sin^{-1}(a)",
+          "text": "y = arcsin(a)",
+          "python": "y = math.asin(a)",
+          "excel": "y = asin(a)"
+        },
+        {
+          "description": "arccos",
+          "latex": "y = \\cos^{-1}(a)",
+          "text": "y = arccos(a)",
+          "python": "y = math.acos(a)",
+          "excel": "y = acos(a)"
+        },
+        {
+          "description": "arctan",
+          "latex": "y = \\tan^{-1}(a)",
+          "text": "y = arctan(a)",
+          "python": "y = math.atan(a)",
+          "excel": "y = atan(a)"
+        },
+        {
+          "description": "arccot",
+          "latex": "y = \\cot^{-1}(a)",
+          "text": "y = arccot(a)",
+          "python": "y = math.atan(1 / a)",
+          "excel": "y = acot(a)"
+        },
+        {
+          "description": "arccot - latex",
+          "latex": "y = \\arccot(a)",
+          "text": "y = arccot(a)",
+          "python": "y = math.atan(1 / a)",
+          "excel": "y = acot(a)"
+        },
+        {
+          "description": "arccsc",
+          "latex": "y = \\csc^{-1}(a)",
+          "text": "y = arccsc(a)",
+          "python": "y = math.asin(1 / a)",
+          "excel": "y = asin(1 / a)"
+        },
+        {
+          "description": "arcsec",
+          "latex": "y = \\sec^{-1}(a)",
+          "text": "y = arcsec(a)",
+          "python": "y = math.acos(1 / a)",
+          "excel": "y = acos(1 / a)"
+        }
+      ]
+    },
+    {
+      "name": "Hyperbolic Trig",
+      "samples": [
+        {
+          "description": "sinh",
+          "latex": "y = \\sinh(a)",
+          "text": "y = sinh(a)",
+          "python": "y = math.sinh(a)",
+          "excel": "y = sinh(a)"
+        },
+        {
+          "description": "cosh",
+          "latex": "y = \\cosh(a)",
+          "text": "y = cosh(a)",
+          "python": "y = math.cosh(a)",
+          "excel": "y = cosh(a)"
+        },
+        {
+          "description": "tanh",
+          "latex": "y = \\tanh(a)",
+          "text": "y = tanh(a)",
+          "python": "y = math.tanh(a)",
+          "excel": "y = tanh(a)"
+        },
+        {
+          "description": "coth",
+          "latex": "y = \\coth(a)",
+          "text": "y = coth(a)",
+          "python": "y = 1 / math.tanh(a)",
+          "excel": "y = coth(a)"
+        },
+        {
+          "description": "sech",
+          "latex": "y = \\sech(a)",
+          "text": "y = sech(a)",
+          "python": "y = 1 / math.cosh(a)",
+          "excel": "y = sech(a)"
+        },
+        {
+          "description": "csch",
+          "latex": "y = \\csch(a)",
+          "text": "y = csch(a)",
+          "python": "y = 1 / math.sinh(a)",
+          "excel": "y = csch(a)"
+        },
+        {
+          "description": "sinh^2",
+          "latex": "y = \\sinh^2(a)",
+          "text": "y = (sinh(a) ^ 2)",
+          "python": "y = (math.sinh(a) ** 2)",
+          "excel": "y = (sinh(a) ^ 2)"
+        }
+      ]
+    },
+    {
+      "name": "Inverse Hyperbolic Trig",
+      "samples": [
+        {
+          "description": "arcsinh",
+          "latex": "y = \\sinh^{-1}(a)",
+          "text": "y = arcsinh(a)",
+          "python": "y = math.asinh(a)",
+          "excel": "y = asinh(a)"
+        },
+        {
+          "description": "arccosh",
+          "latex": "y = \\cosh^{-1}(a)",
+          "text": "y = arccosh(a)",
+          "python": "y = math.acosh(a)",
+          "excel": "y = acosh(a)"
+        },
+        {
+          "description": "arcsech",
+          "latex": "y = \\sech^{-1}(a)",
+          "text": "y = arcsech(a)",
+          "python": "y = math.acosh(1 / a)",
+          "excel": "y = acosh(1 / a)"
+        },
+        {
+          "description": "arctanh",
+          "latex": "y = \\tanh^{-1}(a)",
+          "text": "y = arctanh(a)",
+          "python": "y = math.atanh(a)",
+          "excel": "y = atanh(a)"
+        },
+        {
+          "description": "arccoth",
+          "latex": "y = \\coth^{-1}(a)",
+          "text": "y = arccoth(a)",
+          "python": "y = math.atanh(1 / a)",
+          "excel": "y = acoth(a)"
+        },
+        {
+          "description": "arccsch",
+          "latex": "y = \\csch^{-1}(a)",
+          "text": "y = arccsch(a)",
+          "python": "y = math.asinh(1 / a)",
+          "excel": "y = asinh(1 / a)"
+        }
+      ]
+    },
+    {
+      "name": "Variables and Formulas",
+      "samples": [
+        {
+          "description": "Pythagorean Identity",
+          "latex": "(\\sin(x))^2 + (\\cos(x^2))^2",
+          "text": "(sin(x) ^ 2) + (cos(x ^ 2) ^ 2)",
+          "python": "(math.sin(x) ** 2) + (math.cos(x ** 2) ** 2)",
+          "excel": "(sin(x) ^ 2) + (cos(x ^ 2) ^ 2)"
+        },
+        {
+          "description": "Distance Formula",
+          "latex": "d = \\sqrt{(x-x)^2 + (y-y)^2}",
+          "text": "d = sqrt(((x - x) ^ 2) + ((y - y) ^ 2))",
+          "python": "d = math.sqrt(((x - x) ** 2) + ((y - y) ** 2))",
+          "excel": "d = sqrt(((x - x) ^ 2) + ((y - y) ^ 2))"
+        },
+        {
+            "description": "Quadratic Formula",
+            "latex": "x = \\frac{-b + \\sqrt{b^2 - 4*a*c}}{2a}",
+            "text": "x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))",
+            "python": "x = ((-b + math.sqrt((b ** 2) - ((4 * a) * c))) / (2 * a))",
+            "excel": "x = ((-b + sqrt((b ^ 2) - ((4 * a) * c))) / (2 * a))"
+          },
+        {
+          "description": "Some Trig Formula",
+          "latex": "c =\\sqrt{ a^2 + b^2 - 2*a*b\\cos(C)}",
+          "text": "c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))",
+          "python": "c = math.sqrt(((a ** 2) + (b ** 2)) - (((2 * a) * b) * math.cos(C)))",
+          "excel": "c = sqrt(((a ^ 2) + (b ^ 2)) - (((2 * a) * b) * cos(C)))"
+        },
+        {
+          "description": "Definition of Sin/Arcsin",
+          "latex": "x = \\sin^{-1}\\left(\\frac{o}{h}\\right)",
+          "text": "x = arcsin(o / h)",
+          "python": "x = math.asin(o / h)",
+          "excel": "x = asin(o / h)"
+        },
+        {
+          "description": "Pi, Subscripts, long Variable names",
+          "latex": "x = \\sin(\\pi * length_{ab})",
+          "text": "x = sin(pi * length_ab)",
+          "python": "x = math.sin(math.pi * length_ab)",
+          "excel": "x = sin(pi() * length_ab)"
+        }
+      ]
+    }
+  ]
+}

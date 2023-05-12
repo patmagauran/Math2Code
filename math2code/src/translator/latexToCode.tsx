@@ -1,7 +1,7 @@
 import pythonMap from "./python.json";
 import textMap from "./text.json";
 import excelMap from "./excel.json";
-import { MathNode } from "mathjs";
+import { MathNode, map } from "mathjs";
 import { parseTex } from 'tex-math-parser' // ES6 module
 import { log } from "console";
 
@@ -49,6 +49,7 @@ function translate(mml: MathNode, mapping: any): string {
       if (mml.args != undefined) {
         if (mml.name != undefined) {
           let fn = mml.name;
+          let invert = false;
           if (mapping.operators[mml.name] != undefined) {
             if (mml.name == "log" || mml.name == "log10") {
               return logFunc(mml.name, mapping.operators[mml.name], translate(mml.args[0], mapping), translate(mml.args[1], mapping));
@@ -57,8 +58,14 @@ function translate(mml: MathNode, mapping: any): string {
               return nthRoot(mapping.operators[mml.name], translate(mml.args[0], mapping), translate(mml.args[1], mapping));
             }
             fn = mapping.operators[mml.name].symbol;
+            if (mapping.operators[mml.name].invert == true) {
+              invert = true;
+            }
           }
           let args = mml.args.map((arg) => translate(arg, mapping));
+          if (invert == true) {
+            return fn + "(1 / " + args.join(", ") + ")";
+          }
           return fn + "(" + args.join(", ") + ")";
         } else {
           let args = mml.args.map((arg) => translate(arg, mapping));
@@ -150,14 +157,14 @@ function generate(el: Array<string> | string): string {
 }
 
 function prepareLatex(latex: string): string {
-  console.log("PreCleaned Latex:", latex);
+ // console.log("PreCleaned Latex:", latex);
   latex = latex.replace(/\\(sin|cos|tan|cot|csc|sec|sinh|cosh|tanh|coth|csch|sech)\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arc$1($2)");
   // latex = latex.replace(/\\cos\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arccos($1)");
   // latex = latex.replace(/\\tan\^{*-1}*(?:\\left)*\((.+?)(?:\\right)*\)/, "\\arctan($1)");
   latex = latex.replace(/\\(sin|cos|tan|cot|csc|sec|sinh|cosh|tanh|coth|csch|sech)\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\$1\\left($3\\right))^{$2}");
   // latex = latex.replace(/\\cos\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\cos\\left($2\\right))^{$1}");
   // latex = latex.replace(/\\tan\^{*(-*\d+)}*(?:\\left)*\((.+?)(?:\\right)*\)/, "(\\tan\\left($2\\right))^{$1}");
-  console.log("Cleaned Latex:", latex);
+  //console.log("Cleaned Latex:", latex);
 
   return latex;
 }

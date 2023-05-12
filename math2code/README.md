@@ -19,19 +19,19 @@ This allows you to easily enter an equation and convert it to various formats au
 | arccos         | Y     | Y     | Y     | Y      |       |
 | arctan         | Y     | Y     | Y     | Y      |       |
 | e^x            | Y     | Y     | Y     | Y      |       |
-| ln             | Y     | Y     | N     | N      |       |
-| log            | Y     | Y     | N     | N      |       |
-| mod            | Y     | Y     | N     | N      |       |
-| arbitrary root | Y     | Y     | N     | N      |       |
-| cot            | Y     | Y     | N     | N      |       |
-| arccot         | Y     | Y     | N     | N      |       |
-| sinh           | Y     | Y     | N     | N      |       |
-| cosh           | Y     | Y     | N     | N      |       |
-| tanh           | Y     | Y     | N     | N      |       |
-| coth           | Y     | Y     | N     | N      |       |
-| sec            | Y     | Y     | N     | N      |       |
-| csc            | Y     | Y     | N     | N      |       |
-| abs            | Y     | Y     | N     | N      | Only supports \left\| syntax      |
+| ln             | Y     | Y     | Y     | Y      |       |
+| log            | Y     | Y     | Y     | Y      |       |
+| mod            | Y     | Y     | Y     | Y      |       |
+| arbitrary root | Y     | Y     | Y     | Y      |       |
+| cot            | Y     | Y     | Y     | Y      |       |
+| arccot         | Y     | Y     | Y     | Y      |       |
+| sinh           | Y     | Y     | Y     | Y      |       |
+| cosh           | Y     | Y     | Y     | Y      |       |
+| tanh           | Y     | Y     | Y     | Y      |       |
+| coth           | Y     | Y     | Y     | Y      |       |
+| sec            | Y     | Y     | Y     | Y      |       |
+| csc            | Y     | Y     | Y     | Y      |       |
+| abs            | Y     | Y     | Y     | Y      | Only supports \left\| syntax      |
 
 ### Constant Support List
  - Pi
@@ -46,7 +46,7 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [X] Reads in Typed equation to latex
 - [X] Converts Latex back to text
 - [X] Converts Latex back to Excel and Python
-- [ ] Supports full algebraic and trigonometric function set
+- [X] Supports full algebraic and trigonometric function set
 - [X] Unit Tests written and pass
 - [X] Supports standard natural constants pi and e
 - [ ] Error messages for invalid or unrecognized inputs
