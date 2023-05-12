@@ -1,3 +1,3 @@
 [submodule "tex-math-parser"]
 	path = tex-math-parser
-	url = git@github.com:patmagauran/tex-math-parser.git
+	url = https://github.com/patmagauran/tex-math-parser.git
