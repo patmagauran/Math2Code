@@ -50,7 +50,7 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [X] Unit Tests written and pass
 - [X] Supports standard natural constants pi and e
 - [X] Error messages for invalid or unrecognized inputs
-- [ ] Autocomplete for base functions
+- [X] Autocomplete for base functions
 - [ ] Disclaimer on unsupported features
 - [ ] Quick guide
 - [ ] Support Greek Symbols
