@@ -25,6 +25,8 @@ import Box from "@mui/material/Box";
 const initialLatex =
   "A=\\frac{\\cos\\left(b^2+c^2-a^2\\right)}{\\sqrt{2\\cdot b\\cdot c}}";
 
+
+
 export default function Home() {
   const [latex, setLatex] = useState(initialLatex);
   const [text, setText] = useState("");
@@ -33,6 +35,23 @@ export default function Home() {
 
   const [python, setPython] = useState("");
   const [excel, setExcel] = useState("");
+  const onChange = (mathField: any) => {
+    setLatex(mathField.latex());
+    setText(mathField.text());
+    try {
+      console.log("Editable mathfield changed:", mathField.latex());
+      let latex = mathField.latex();
+      setC_text(latexToText(latex));
+      setPython(latexToPython(latex));
+      setExcel(latexToExcel(latex));
+      setError("");
+    } catch (error: any) {
+      setC_text("");
+      setPython("");
+      setExcel("");
+      setError(error.message);
+    }
+  };
   return (
     <>
       <Head>
@@ -79,26 +98,8 @@ export default function Home() {
             <EquationEditorComp
               latex={latex}
               error={error}
-              onChange={(mathField) => {
-                setLatex(mathField.latex());
-                setText(mathField.text());
-                try {
-                  console.log("Editable mathfield changed:", mathField.latex());
-                  let latex = mathField.latex();
-                  setC_text(latexToText(latex));
-                  setPython(latexToPython(latex));
-                  setExcel(latexToExcel(latex));
-                  setError("");
-                } catch (error: any) {
-                  setC_text("");
-                  setPython("");
-                  setExcel("");
-                  setError(error.message);
-                }
-              }}
-              // mathquillDidMount={(mathField) => {
-              //   setText(mathField.text())
-              // }}
+              onChange={onChange}
+              mathquillDidMount={onChange}
             />
 
             <div className={styles.resultContainer}>

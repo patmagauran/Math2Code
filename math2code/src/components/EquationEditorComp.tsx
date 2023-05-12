@@ -10,6 +10,7 @@ import styles from "@/styles/Equation.module.css";
 addStyles();
 type EditorProps = {
   onChange: (arg0: MathField) => void;
+  mathquillDidMount: (arg0: MathField) => void;
   latex: string;
   error: string;
 };
@@ -38,7 +39,7 @@ const EditableMathExample = (props: EditorProps) => {
         flexDirection: "row",
         justifyContent: "space-between",
       }}>
-      <EditableMathField latex={props.latex} onChange={props.onChange} className={styles.mathquill} config={{
+      <EditableMathField latex={props.latex} onChange={props.onChange} className={styles.mathquill} mathquillDidMount={props.mathquillDidMount} config={{
         autoCommands: "pi theta sqrt nthroot",
 
       }} />
