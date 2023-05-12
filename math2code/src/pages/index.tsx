@@ -22,12 +22,16 @@ const CodeField = dynamic(
 );
 import { SetStateAction, useState } from "react";
 import styles from "@/styles/Equation.module.css";
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 const initialLatex =
   "A=\\frac{\\cos\\left(b^2+c^2-a^2\\right)}{\\sqrt{2\\cdot b\\cdot c}}";
 
 export default function Home() {
   const [latex, setLatex] = useState(initialLatex);
   const [text, setText] = useState("");
+  const [error, setError] = useState("");
   const [c_text, setC_text] = useState("");
 
   const [python, setPython] = useState("");
@@ -43,7 +47,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <Container maxWidth="lg">
+      <Box
+        sx={{
+          my: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+         <main className={styles.main}>
         <div className={styles.center}>
           <h1>Math2Code</h1>
           <div>
@@ -65,6 +79,7 @@ export default function Home() {
           <div>
             <EquationEditorComp
               latex={latex}
+              error={error}
               onChange={(mathField) => {
                 setLatex(mathField.latex());
                 setText(mathField.text());
@@ -74,10 +89,11 @@ export default function Home() {
                   setC_text(latexToText(latex));
                   setPython(latexToPython(latex));
                   setExcel(latexToExcel(latex));
-                } catch (error) {
-                  setC_text("Error parsing Expression");
-                  setPython("Error parsing Expression");
-                  setExcel("Error parsing Expression");
+                } catch (error: any) {
+                  setC_text("");
+                  setPython("");
+                  setExcel("");
+                  setError(error.message);
                 }
               }}
               // mathquillDidMount={(mathField) => {
@@ -132,6 +148,9 @@ export default function Home() {
           <div>Copyright 2023 by Patrick Magauran. All rights reserved.</div>
         </div>
       </main>
+        </Box>
+    </Container>
+     
     </>
   );
 }

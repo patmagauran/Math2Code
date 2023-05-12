@@ -177,6 +177,9 @@ function trimParentheses(str: string): string {
 }
 
 function doTransform(latex: string, mapping: any): string {
+  if (latex == undefined || latex == "") {
+    return "";
+  }
   let cleanLatex = prepareLatex(latex);
   let mathJSTree = parseTex(cleanLatex, false);
 

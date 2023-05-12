@@ -18,7 +18,7 @@
             "type": "node"
         },
         {
-            "name": "Launch math2code",
+            "name": "Launch math2code Tests",
             "request": "launch",
             "runtimeArgs": [
                 "run-script",
@@ -29,18 +29,31 @@
                 "<node_internals>/**"
             ],
             "type": "node"
-        },
+        }
+        ,
         {
-            "type": "node",
+            "name": "Launch math2code Web",
             "request": "launch",
-            "name": "Launch Program",
+            "runtimeArgs": [
+                "run-script",
+                "dev"
+            ],
+            "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/translator/latexToCode.test.tsx",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
-        }
+            "type": "node"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/math2code",
+            "sourceMapPathOverrides": {
+                "webpack://_N_E/*": "${webRoot}/*"
+              }
+          }
+      
     ]
 }
