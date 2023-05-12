@@ -38,7 +38,10 @@ const EditableMathExample = (props: EditorProps) => {
         flexDirection: "row",
         justifyContent: "space-between",
       }}>
-      <EditableMathField latex={props.latex} onChange={props.onChange} className={styles.mathquill} />
+      <EditableMathField latex={props.latex} onChange={props.onChange} className={styles.mathquill} config={{
+        autoCommands: "pi theta sqrt nthroot",
+
+      }} />
       <ErrorIconComp error={props.error} />
       </Box>
     </Paper>

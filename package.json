@@ -11,7 +11,7 @@
         "testTex": "yarn workspace tex-math-parser run test",
         "testTexNew": "yarn workspace tex-math-parser run jest newStuff.test.ts",
         "build": "yarn workspace tex-math-parser run build",
-        "dev": "yarn workspace math2code run dev"
+        "dev": "yarn workspace tex-math-parser run build && yarn workspace math2code run dev"
     },
     "dependencies": {
         "mathjs": "^9.4.4",
