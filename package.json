@@ -4,6 +4,7 @@
         "math2code",
         "tex-math-parser"
     ],
+    "packageManager": "yarn@3.5.1",
     "scripts": {
         "postinstall": "patch-package",
         "lint": "yarn workspaces run lint",
