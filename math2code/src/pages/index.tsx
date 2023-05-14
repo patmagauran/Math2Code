@@ -22,10 +22,17 @@ import styles from "@/styles/Equation.module.css";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { Paper, Link, Card, Button, CardContent } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import ResultField from "@/components/ResultField";
+
 const initialLatex =
   "A=\\frac{\\cos\\left(b^2+c^2-a^2\\right)}{\\sqrt{2\\cdot b\\cdot c}}";
 
 
+const copyToClipboard = (text: string) => {
+  navigator.clipboard.writeText(text);
+};
 
 export default function Home() {
   const [latex, setLatex] = useState(initialLatex);
@@ -73,69 +80,85 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          <h1>Math2Code</h1>
-          <div>
-            <b>Note:</b>
-            <p>
+          <Typography variant="h1">Math2Code</Typography>
+          <Box>
+            <Typography variant="h6">Note:</Typography>
+            <Typography>
               This is currently in Alpha Stage and is intended for testing
               purposes only. If you encounter any issues please open an issue on
               github or let me know. Please verify any output from this before
               use.
-            </p>
-            <p>
+            </Typography>
+            <Typography>
               I Recommend reading over the readme to fully understand the
               current state of the app and its limitations:{" "}
-              <a href="https://github.com/patmagauran/Math2Code/blob/main/README.md">
+              <Link href="https://github.com/patmagauran/Math2Code/blob/main/README.md">
                 README
-              </a>
-            </p>
-            <a href="https://github.com/patmagauran/Math2Code">
+              </Link>
+            </Typography>
+            <Link href="https://github.com/patmagauran/Math2Code">
               Access the Github repo Here!
-            </a>
-            <b></b>
-          </div>
-          <div>
-            <EquationEditorComp
-              latex={latex}
-              error={error}
-              onChange={onChange}
-              mathquillDidMount={onChange}
-            />
+            </Link>
+          </Box>
+          <Box sx = {{
+            padding: "1rem",
+          }}>
+            <Grid container spacing={2}>
+              <Grid xs={12} md={12} >
+                <Card sx={{
+                      padding: "8px 16px",
+                    }}
+                  >
+                <EquationEditorComp
+                  latex={latex}
+                  error={error}
+                  onChange={onChange}
+                  mathquillDidMount={onChange}
+                  resetField={() => {
+                    setLatex(initialLatex);
+                  }}
+                />
+                </Card>
+                
+              </Grid>
+              <Grid xs={12} md={6}>
+                <ResultField text={latex} heading="Latex" language="latex" />
 
-            <div className={styles.resultContainer}>
-              <span>Raw latex:</span>
-              <CodeField language="latex" code={latex} />
-            </div>
-            <div className={styles.resultContainer}>
-              <span>Raw text:</span>
-              <span className={styles.resultLatex}>{text}</span>
-            </div>
-            <div className={styles.resultContainer}>
-              <span>Computed text:</span>
-              <span className={styles.resultLatex}>{c_text}</span>
-            </div>
-            <div className={styles.resultContainer}>
-              <span>Python:</span>
-              <CodeField language="python" code={python} />
-            </div>
-            <div className={styles.resultContainer}>
-              <span>Excel:</span>
-              <CodeField language="excel" code={excel} />
-            </div>
-            <button
-              onClick={() => {
-                setLatex(initialLatex);
-              }}
-            >
-              Reset field
-            </button>
-          </div>
-          {/* <h1>Equation</h1>
-        <EquationEditorComp onChange={(mathField: MathField)=> {
-          setLatex(mathField.latex())
+                
+              </Grid>
 
-        }} />
-        <p>{latex}</p> */}
+              <Grid xs={12 } md={6}>
+              <Card>
+                <ResultField text={text} heading = "Raw Text" language="text" />
+
+                </Card>
+              </Grid>
+
+              <Grid xs={12} md={6}>
+              <Card>
+                <ResultField text={c_text} heading = "Computed Text" language="text" />
+
+                </Card>
+              </Grid>
+
+              <Grid xs={12} md={6}>
+              <Card>
+                <ResultField text={python} heading = "Python" language="python" />
+
+                </Card>
+              </Grid>
+
+              <Grid xs={12} md={6}>
+              <Card>
+                <ResultField text={excel} heading = "Excel" language="excel-formula" />
+
+                </Card>
+              </Grid>
+
+
+            </Grid>
+          </Box>
+
 
           <div>
             Really like this project and want to support me? Feel free to buy me
