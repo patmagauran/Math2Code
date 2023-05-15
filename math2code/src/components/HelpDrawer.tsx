@@ -25,7 +25,7 @@ function createData(func: string, latex: string, formatted?: string) {
 const AlgebraRows = [
   createData("Addition", "a+b"),
   createData("Subtraction", "a-b"),
-  createData("Multiplication", "a\\cdot b or a\\times b", "a\\times b"),
+  createData("Multiplication", "a\\cdot b", "a\\cdot b"),
   createData("Division", "\\frac{a}{b}"),
   createData("Exponentiation", "a^b"),
   createData("Square Root", "\\sqrt{a}"),
@@ -33,7 +33,7 @@ const AlgebraRows = [
   createData("Absolute Value", "\\left|a\\right|"),
   createData("Logarithm", "\\log_{a}\\left(b\\right)"),
   createData("Natural Logarithm", "\\ln\\left(a\\right)"),
-  createData("Modulo", "a \\bmod b"),
+  createData("Modulo", "a \\% b"),
 ];
 const TrigRows = [
   createData("sin(x)", "\\sin(x)"),
@@ -184,7 +184,7 @@ const FunctionSet = (props: {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 },
                 cursor: "pointer" }}
                 onClick={() => {
-                    props.onRowClick(row.latex);
+                    props.onRowClick(row.formatted ?? row.latex);
                 }}
                 
               >

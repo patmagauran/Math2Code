@@ -51,6 +51,7 @@ const EditableMathExample = (props: EditorProps) => {
         mathquillDidMount={props.mathquillDidMount}
         config={{
           autoCommands: "pi theta sqrt nthroot",
+          
         }}
       />
       <ErrorIconComp error={props.error} />

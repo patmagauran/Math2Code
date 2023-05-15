@@ -46,6 +46,13 @@
           "excel": "y = mod(a, y)"
         },
         {
+          "description": "Modulo",
+          "latex": "y = a \\% y",
+          "text": "y = (a % y)",
+          "python": "y = (a % y)",
+          "excel": "y = mod(a, y)"
+        },
+        {
           "description": "Nth Root",
           "latex": "y = \\sqrt[5]{b}",
           "text": "y = b ^ (1 / 5)",
