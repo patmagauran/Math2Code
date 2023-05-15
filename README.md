@@ -57,13 +57,13 @@ To use this, just enter your equation in the input field and get formatted outpu
 - [x] Error messages for invalid or unrecognized inputs
 - [x] Autocomplete for base functions
 - [x] Disclaimer on unsupported features
-- [ ] Quick guide
+- [X] Quick guide
 - [x] Support Greek Symbols
 - [x] Disable implicit variable multiplication and support multi-letter variables
 
 ### Beta
 
-- [ ] Improve page layout
+- [X] Improve page layout
 - [ ] Add Support for Java, Java BigDecimal, C
 - [ ] Optimize page payload
 - [ ] Generate working code samples

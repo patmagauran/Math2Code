@@ -181,10 +181,12 @@ const FunctionSet = (props: {
             {rows.map((row) => (
               <TableRow
                 key={row.func}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 },
+                cursor: "pointer" }}
                 onClick={() => {
                     props.onRowClick(row.latex);
                 }}
+                
               >
                 <TableCell component="th" scope="row">
                   {row.func}

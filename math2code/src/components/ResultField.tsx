@@ -45,6 +45,9 @@ const ResultField = (props: {
           handleTooltipOpen();
           copyToClipboard(props.text);
         }} 
+        sx={{
+            cursor: "pointer",
+        }}
         aria-label="Copy to clipboard"
       >
         <CardActionArea>
