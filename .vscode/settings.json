@@ -1,7 +1,9 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "eslint.workingDirectories": [
+
         "./math2code",
-        "./tex-math-parser"
+        "./tex-math-parser",
+        "./react-math-view"
       ]
 }

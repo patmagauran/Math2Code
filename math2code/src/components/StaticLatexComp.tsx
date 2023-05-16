@@ -1,9 +1,9 @@
+import { convertLatexToMarkup } from "mathlive";
 import React from "react";
-import { addStyles, StaticMathField } from "react-mathquill";
 
 // inserts the required css to the <head> block.
 // you can skip this, if you want to do that by yourself.
-addStyles();
+//addStyles();
 type EditorProps = {
 
   children: string;
@@ -11,11 +11,11 @@ type EditorProps = {
 };
 
 const StaticMathFieldComp = (props: EditorProps) => {
+  const mark = convertLatexToMarkup(props.children);
   return (
 
-      <StaticMathField
-        >{props.children}</StaticMathField>
-
+      <div dangerouslySetInnerHTML={{ __html: mark }}></div>
+  
   );
 };
 export default StaticMathFieldComp;

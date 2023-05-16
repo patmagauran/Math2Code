@@ -1,3 +1,9 @@
 [submodule "tex-math-parser"]
 	path = tex-math-parser
 	url = https://github.com/patmagauran/tex-math-parser.git
+[submodule "react-mathlive"]
+	path = react-mathlive
+	url = https://github.com/patmagauran/react-mathlive.git
+[submodule "react-math-view"]
+	path = react-math-view
+	url = https://github.com/patmagauran/react-math-view.git

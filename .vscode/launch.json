@@ -53,7 +53,19 @@
             "sourceMapPathOverrides": {
                 "webpack://_N_E/*": "${webRoot}/*"
               }
-          }
+          },
+          
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch Edge against localhost2",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/react-math-view/example",
+            "sourceMapPathOverrides": {
+                "@fs/home/pat/EquationEditor": "${webRoot}/../*"
+              }
+          },
+          
       
     ]
 }

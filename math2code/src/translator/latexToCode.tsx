@@ -1,9 +1,8 @@
 import pythonMap from "./python.json";
 import textMap from "./text.json";
 import excelMap from "./excel.json";
-import { MathNode, map } from "mathjs";
+import type {MathNode} from "mathjs";
 import { parseTex } from 'tex-math-parser' // ES6 module
-import { log } from "console";
 
 function translate(mml: MathNode, mapping: any): string {
   if (mml == undefined || mml.type == undefined) {
@@ -12,8 +11,8 @@ function translate(mml: MathNode, mapping: any): string {
   switch (mml.type) {
     case "OperatorNode":
       if (mml.args != undefined) {
-        let left = translate(mml.args[0], mapping);
-        let right = translate(mml.args[1], mapping);
+        const left = translate(mml.args[0], mapping);
+        const right = translate(mml.args[1], mapping);
         let op = mml.fn;
         if (op != undefined) {
           if (op == "pow") {
@@ -21,7 +20,7 @@ function translate(mml: MathNode, mapping: any): string {
               op = "exp";
             }
           }
-          let mappingOp = mapping.operators[op];
+          const mappingOp = mapping.operators[op];
           if (mappingOp != undefined) {
             switch (mappingOp.type) {
               case "p":
@@ -62,13 +61,13 @@ function translate(mml: MathNode, mapping: any): string {
               invert = true;
             }
           }
-          let args = mml.args.map((arg) => translate(arg, mapping));
+          const args = mml.args.map((arg) => translate(arg, mapping));
           if (invert == true) {
             return fn + "(1 / " + args.join(", ") + ")";
           }
           return fn + "(" + args.join(", ") + ")";
         } else {
-          let args = mml.args.map((arg) => translate(arg, mapping));
+          const args = mml.args.map((arg) => translate(arg, mapping));
           return "(" + args.join(", ") + ")";
         }
       }
@@ -76,8 +75,8 @@ function translate(mml: MathNode, mapping: any): string {
       return mml.value;
       break;
     case "SymbolNode":
-      let name = mml.name ?? "";
-      let mappingSym = mapping.symbols[name];
+      const name = mml.name ?? "";
+      const mappingSym = mapping.symbols[name];
       if (mappingSym != undefined && mappingSym.symbol != undefined) {
         return mappingSym.symbol;
       }
@@ -91,8 +90,8 @@ function translate(mml: MathNode, mapping: any): string {
 }
 
 function logFunc(name: string, mappingOp:any, arg:string,base:string): string {
-  let logSym = mappingOp.logSym ?? "log";
-  let lnSym = mappingOp.lnSym ?? "ln";
+  const logSym = mappingOp.logSym ?? "log";
+  const lnSym = mappingOp.lnSym ?? "ln";
   if (name == "log") {
     if (base === undefined || base === "") {
       return lnSym + "(" + arg + ")";
@@ -121,10 +120,10 @@ function tokenize(str: string) {
 }
 
 function parse(toks: RegExpMatchArray, depth = 0): Array<string> {
-  let ast: Array<any> = [];
+  const ast: Array<any> = [];
 
   while (toks.length) {
-    let t = toks.shift();
+    const t = toks.shift();
 
     switch (t) {
       case "(":
@@ -180,13 +179,13 @@ function doTransform(latex: string, mapping: any): string {
   if (latex == undefined || latex == "") {
     return "";
   }
-  let cleanLatex = prepareLatex(latex);
-  let mathJSTree = parseTex(cleanLatex, false);
+  const cleanLatex = prepareLatex(latex);
+  const mathJSTree = parseTex(cleanLatex, false);
 
-  let code = translate(mathJSTree, mapping);
-  let tokens = tokenize(code);
+  const code = translate(mathJSTree, mapping);
+  const tokens = tokenize(code);
   if (tokens != null) {
-  let ast = parse(tokens);
+  const ast = parse(tokens);
   return trimParentheses(generate(ast));
   } else {
     return trimParentheses(code);

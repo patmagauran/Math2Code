@@ -1,23 +1,16 @@
 import {
   Box,
-  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Toolbar,
   Typography,
 } from "@mui/material";
-import dynamic from "next/dynamic";
 
-const StaticMathField = dynamic(
-    () => import("../components/StaticLatexComp"),
-    {
-      ssr: false,
-    }
-  );
+import StaticMathField  from "../components/StaticLatexComp";
+
 function createData(func: string, latex: string, formatted?: string) {
   return { func, latex, formatted };
 }

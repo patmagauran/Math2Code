@@ -1,7 +1,5 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
 import dynamic from "next/dynamic";
 import {
   latexToPython,
@@ -14,51 +12,25 @@ const EquationEditorComp = dynamic(
     ssr: false,
   }
 );
-const CodeField = dynamic(() => import("../components/CodeField"), {
-  ssr: false,
-});
-import { SetStateAction, useRef, useState } from "react";
-import styles from "@/styles/Equation.module.css";
+
+import { useRef, useState } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import {
-  Paper,
   Link,
-  Card,
-  Button,
-  CardContent,
-  AppBar,
-  Drawer,
-  IconButton,
-  Toolbar,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Fab
-} from "@mui/material";
-import { Help as HelpIcon } from "@mui/icons-material";
+  Card} from "@mui/material";
 
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import ResultField from "@/components/ResultField";
 import React from "react";
-import { Menu as MenuIcon } from "@mui/icons-material";
 import DrawerLayout from "@/components/DrawerLayout";
 import drawer from "@/components/HelpDrawer";
-
+import {Mathfield, MathfieldElement} from "mathlive";
 const initialLatex =
   "A=\\frac{\\cos\\left(b^2+c^2-a^2\\right)}{\\sqrt{2\\cdot b\\cdot c}}";
 
-const copyToClipboard = (text: string) => {
-  navigator.clipboard.writeText(text);
-};
-const drawerWidth = 240;
-interface MQ {
-  write(latex: string): void;
-}
+
 export default function Home() {
   const [latex, setLatex] = useState(initialLatex);
   const [text, setText] = useState("");
@@ -67,12 +39,13 @@ export default function Home() {
 
   const [python, setPython] = useState("");
   const [excel, setExcel] = useState("");
-  const onChange = (mathField: any) => {
-    setLatex(mathField.latex());
-    setText(mathField.text());
+  const mathfield = useRef<MathfieldElement | null>(null);
+  const onChange = (mathField: Mathfield) => {
+    setLatex(mathField.getValue("latex-unstyled"));
+    setText(mathField.getValue("ascii-math"));
     try {
-      console.log("Editable mathfield changed:", mathField.latex());
-      let latex = mathField.latex();
+      //console.log("Editable mathfield changed:", mathField.latex());
+      const latex = mathField.getValue("latex-unstyled");
       setC_text(latexToText(latex));
       setPython(latexToPython(latex));
       setExcel(latexToExcel(latex));
@@ -84,12 +57,8 @@ export default function Home() {
       setError(error.message);
     }
   };
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const mathfield = useRef<MQ | null>(null);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+
 
   return (
     <>
@@ -108,7 +77,7 @@ export default function Home() {
           drawer={drawer({
             onRowClick(latex) {
               if (mathfield.current) {
-                mathfield.current.write(latex);
+                mathfield.current.insert(latex);
               }
               //document.getElementById("latex").write = latex;
             },
@@ -156,16 +125,14 @@ export default function Home() {
                       }}
                     >
                       <EquationEditorComp
-                        latex={latex}
                         error={error}
-                        onChange={onChange}
-                        mathquillDidMount={(mf) => {
-                          mathfield.current = mf;
-                          
-                          onChange(mf);
+                        onLoad={(mathField) => {
+                          mathfield.current = mathField;
+                          mathField.setValue(initialLatex, {silenceNotifications: false});
                         }}
+                        onChange={onChange}
                         resetField={() => {
-                          setLatex(initialLatex);
+                          mathfield.current?.setValue(initialLatex, {silenceNotifications: false});
                         }}
                       />
                     </Card>

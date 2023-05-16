@@ -3,14 +3,11 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardHeader,
-  IconButton,
   Tooltip,
   Typography,
 } from "@mui/material";
 import CodeField from "./CodeField";
 import React from "react";
-import { ContentCopy } from "@mui/icons-material";
 const copyToClipboard = (text: string) => {
   navigator.clipboard.writeText(text);
 };
