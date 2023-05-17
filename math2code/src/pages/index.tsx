@@ -96,10 +96,7 @@ export default function Home() {
               <Box>
                 <Typography variant="h6">Note:</Typography>
                 <Typography>
-                  This is currently in Alpha Stage and is intended for testing
-                  purposes only. If you encounter any issues please open an
-                  issue on github or let me know. Please verify any output from
-                  this before use.
+                  This is currently in beta. If you encounter any issues please open an issue on github. Please verify any output from this before use.
                 </Typography>
                 <Typography>
                   I Recommend reading over the readme to fully understand the

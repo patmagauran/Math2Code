@@ -47,7 +47,7 @@ const ControlledMathView = React.memo((props: { onChange?: (arg0: MathfieldEleme
     onLoad={(e) => {
       props.onLoad && props.onLoad(e.currentTarget);
     }}
-
+    containerClassName={styles.mathquill}
     className={styles.mathquill}
     options={{
       mathVirtualKeyboardPolicy: 'manual',
