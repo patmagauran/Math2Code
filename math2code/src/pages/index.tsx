@@ -68,8 +68,6 @@ export default function Home() {
           name="description"
           content="Interactive Equation editor which converts typeset equations into code and excel-compatibile formulas."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
         <DrawerLayout
