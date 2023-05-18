@@ -1,4 +1,4 @@
-# Math2Code
+# MathCoder
 
 ## About
 
@@ -65,7 +65,7 @@ To use this, just enter your equation in the input field and get formatted outpu
 
 - [X] Improve page layout
 - [ ] Add Support for Java, Java BigDecimal, C
-- [ ] Optimize page payload
+- [X] Optimize page payload
 - [ ] Generate working code samples
 - [x] Support subscripted variables
 - [ ] Generate Transparent PNGs and SVGs of typeset equations
@@ -96,8 +96,8 @@ To use this, just enter your equation in the input field and get formatted outpu
 This relies on the following technologies:
 
 - [React](https://react.dev/)
-- [Mathquill](http://mathquill.com/) and [react-mathquill](https://github.com/viktorstrate/react-mathquill)
-- [tex-math-parser](https://github.com/davidtranhq/tex-math-parser)
+- [Mathlive](https://cortexjs.io/mathlive/) and [react-math-view](https://github.com/patmagauran/react-math-view)
+- [tex-math-parser](https://github.com/patmagauran/tex-math-parser)
 - [Math.JS](https://mathjs.org/)
 - [Next.JS](https://nextjs.org/)
 - [React-syntax-highlighting](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
