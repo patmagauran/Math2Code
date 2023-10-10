@@ -63,13 +63,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Math2Code</title>
+        <title>MathCoder</title>
         <meta
           name="description"
           content="Interactive Equation editor which converts typeset equations into code and excel-compatibile formulas."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
         <DrawerLayout
@@ -92,7 +90,7 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h1">Math2Code</Typography>
+              <Typography variant="h1">MathCoder</Typography>
               <Box>
                 <Typography variant="h6">Note:</Typography>
                 <Typography>
@@ -101,11 +99,11 @@ export default function Home() {
                 <Typography>
                   I Recommend reading over the readme to fully understand the
                   current state of the app and its limitations:{" "}
-                  <Link href="https://github.com/patmagauran/Math2Code/blob/main/README.md">
+                  <Link href="https://github.com/patmagauran/MathCoder/blob/main/README.md">
                     README
                   </Link>
                 </Typography>
-                <Link href="https://github.com/patmagauran/Math2Code">
+                <Link href="https://github.com/patmagauran/MathCoder">
                   Access the Github repo Here!
                 </Link>
               </Box>
